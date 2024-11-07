@@ -25,7 +25,7 @@ class AccountRepository:
         :param num_account:
         :return:  Account
         """
-        return Account.Account.query.filter_by(numero_conta=num_account).first()
+        return Account.query.filter_by(numero_conta=num_account).first()
 
     @staticmethod
     def update_balance(num_accont: int, new_balance: float) -> Optional[Account]:
