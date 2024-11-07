@@ -2,7 +2,7 @@ from typing import Optional
 from config import db
 from models.accounts import Account
 
-class ContaRepository:
+class AccountRepository:
     @staticmethod
     def create_account(num_account: int, balance: float) -> Account:
         """
@@ -36,7 +36,7 @@ class ContaRepository:
         :param new_balance:
         :return: Account
         """
-        account = ContaRepository.get_account(num_accont)
+        account = AccountRepository.get_account(num_accont)
         if account:
             account.saldo = new_balance
             db.session.commit()
