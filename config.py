@@ -15,4 +15,4 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # import models for migrations
-from models import accounts, transaction
+from models import accounts, transactions
