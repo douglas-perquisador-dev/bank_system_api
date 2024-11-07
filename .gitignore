@@ -1,0 +1,4 @@
+__pycache__/
+
+# Ignorar a pasta migrations/__pycache__ específica
+migrations/
