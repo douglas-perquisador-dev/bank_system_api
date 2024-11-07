@@ -1,5 +1,5 @@
 from config import app, db
-import views
+import routes
 
 # Cria as tabelas no banco de dados caso ainda não existam
 with app.app_context():

@@ -11,6 +11,13 @@ class AccountService:
         return AccountRepository.create_account(account_number, balance)
 
     @staticmethod
+    def get_account(account_number: int) -> Account:
+        account = AccountRepository.get_account(account_number)
+        if not account:
+            raise ValueError("Conta não encontrada")
+        return account
+
+    @staticmethod
     def process_transaction(account_number: int, payment_method: PaymentMethod, amount: float) -> Account:
         account = AccountRepository.get_account(account_number)
         if not account:
