@@ -1,6 +1,6 @@
 # Bank System API
 
-API para gerenciamento de sistema bancário desenvolvida com Flask, Flask-RESTX e SQLAlchemy.
+API para gerenciamento de sistema bancário desenvolvida com Flask, Flask e SQLAlchemy.
 
 ## Índice
 
@@ -155,7 +155,7 @@ Para testar os endpoints da API, você pode usar ferramentas como Postman ou cUR
 
  - Python 3
  - Flask
- - Flask-RESTX
+ - Flask
  - SQLAlchemy
  - PostgreSQL
  - Docker (opcional para uso com containers)
