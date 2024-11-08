@@ -15,7 +15,7 @@ API para gerenciamento de sistema bancário desenvolvida com Flask e SQLAlchemy.
 
 ### Descrição do Projeto
 
-Este projeto fornece uma API para criar, ler, atualizar e deletar informações de contas em um sistema bancário, com suporte a documentação Swagger para endpoints. A aplicação usa `Flask-RESTX` para a API, `SQLAlchemy` para a modelagem de dados e `PostgreSQL` como banco de dados.
+Este projeto fornece uma API para criar, ler, atualizar e deletar informações de contas em um sistema bancário, com suporte a documentação Swagger para endpoints. A aplicação usa `Flask` para a API, `SQLAlchemy` para a modelagem de dados e `PostgreSQL` como banco de dados.
 
 ### Pré-requisitos
 
