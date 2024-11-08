@@ -44,10 +44,6 @@ Siga as instruções abaixo para configurar o projeto:
     docker compose up --build -d
     ```
 
-3. Acesse a documentação Swagger da API no navegador:
-
-    - [http://localhost:5000](http://localhost:5000)
-
 #### Sem Docker (execução local)
 
 1. Clone o repositório:
@@ -97,7 +93,6 @@ Após configurar o ambiente e instalar as dependências, você pode executar o p
    python app.py
    ```
 3. Acesse a aplicação no navegador em: http://localhost:5000
-   - A documentação da API estará disponível em: http://localhost:5000/docs
 
 4. Usuario de inicialização para uso;
    ```bash
@@ -114,7 +109,7 @@ Execute os testes automatizados para validar a aplicação:
 pytest --maxfail=1 --tb=short -v
 ```
 ### Testar de forma manual
-Para testar os endpoints da API, você pode usar ferramentas como Postman ou cURL, ou acessar diretamente a interface Swagger em /docs.
+Para testar os endpoints da API, você pode usar ferramentas como Postman ou cURL.
 
 #### Endpoints principais
  - **GET /login:** Realiza a autenticação e retorna o token JWT.
