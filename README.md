@@ -45,8 +45,8 @@ Siga as instruções abaixo para configurar o projeto:
     ```
 3. Acesse a documentação Swagger da API no navegador:
 
-    - [http://localhost:5000](http://localhost:5000/apidocs)
-    - 
+    - [http://localhost:5000/apidocs](http://localhost:5000/apidocs)
+   
 #### Sem Docker (execução local)
 
 1. Clone o repositório:
