@@ -1,10 +1,12 @@
 import os
 import secrets
 from flask import Flask
+from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 
+load_dotenv()
 # initiating Flask
 app = Flask(__name__)
 
