@@ -9,7 +9,7 @@ from flask_jwt_extended import JWTManager
 app = Flask(__name__)
 
 # Config BD (RDS PostgreSQL)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI', 'postgresql://postgres:D4q15g7b2@localhost:5432/bank_bd')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI', 'postgresql://objective:123456@postgres:5432/bank_system')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Config JWT

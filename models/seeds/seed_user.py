@@ -9,6 +9,6 @@ def seed_user():
         admin = User(username='admin', password='123456')
         db.session.add(admin)
         db.session.commit()
-        print("Admin user created successfully.")
+        print(">>> Admin user created successfully.")
     else:
-        print("Admin user already exists.")
+        print(">>> Admin user already exists.")

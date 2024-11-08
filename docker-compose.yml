@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: objective
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: bank_system
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bank_app
+    depends_on:
+      - postgres
+#        condition: service_healthy
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgresql://objective:123456@postgres:5432/bank_system
+      FLASK_APP: app.py
+      FLASK_ENV: development
+    networks:
+      - backend
+    command: ["python", "app.py"]
+
+networks:
+  backend:
+    driver: bridge
