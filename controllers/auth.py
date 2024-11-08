@@ -1,11 +1,44 @@
 from flask import request, jsonify
 from flask_jwt_extended import jwt_required, create_access_token
+from flasgger import swag_from
 from models.users import User
 
 
 class AuthController:
+
     @staticmethod
+    @swag_from({
+        'tags': ['Authentication'],
+        'parameters': [
+            {
+                'name': 'body',
+                'in': 'body',
+                'required': True,
+                'schema': {
+                    'type': 'object',
+                    'properties': {
+                        'username': {'type': 'string', 'example': 'user123'},
+                        'password': {'type': 'string', 'example': 'password123'}
+                    },
+                    'required': ['username', 'password']
+                }
+            }
+        ],
+        'responses': {
+            200: {
+                'description': 'Login realizado com sucesso',
+                'schema': {
+                    'type': 'object',
+                    'properties': {
+                        'access_token': {'type': 'string', 'example': 'your_jwt_token'}
+                    }
+                }
+            },
+            401: {'description': 'Credenciais inválidas'}
+        }
+    })
     def login():
+        """Autenticação de usuário com JWT"""
         data = request.get_json()
         username = data.get('username')
         password = data.get('password')
