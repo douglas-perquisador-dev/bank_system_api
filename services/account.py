@@ -34,6 +34,8 @@ class AccountService:
         if account.saldo < amount_with_fee:
             raise ValueError("Saldo insuficiente")
 
-        AccountRepository.update_balance(account_number, account.saldo - amount_with_fee)
+        account.saldo = account.saldo - amount_with_fee
+
+        AccountRepository.update_balance(account)
         TransactionRepository.register_transaction(account_number, payment_method, amount)
         return account

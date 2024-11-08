@@ -14,7 +14,7 @@ class AccountController:
 
         try:
             account = AccountService.create_account(account_number, balance)
-            return jsonify({"account_number": account.numero_conta, "balance": account.saldo}), 201
+            return jsonify({"numero_conta": account.numero_conta, "saldo": account.saldo}), 201
         except ValueError as e:
             return jsonify({"error": str(e)}), 404
 

@@ -28,17 +28,14 @@ class AccountRepository:
         return Account.query.filter_by(numero_conta=num_account).first()
 
     @staticmethod
-    def update_balance(num_accont: int, new_balance: float) -> Optional[Account]:
+    def update_balance(account: Account) -> Optional[Account]:
         """
          Atualiza Saldo em conta de  acordo com o numero requerido
 
-        :param num_accont:
-        :param new_balance:
+        :param account: Conta com saldo atualizado
         :return: Account
         """
-        account = AccountRepository.get_account(num_accont)
         if account:
-            account.saldo = new_balance
             db.session.commit()
         return account
 
