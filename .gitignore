@@ -3,3 +3,4 @@ __pycache__/
 .env
 # Ignorar a pasta migrations/__pycache__ específica
 migrations/
+venv/
