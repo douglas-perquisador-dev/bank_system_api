@@ -17,6 +17,70 @@ API para gerenciamento de sistema bancário desenvolvida com Flask, Flask-RESTX 
 
 Este projeto fornece uma API para criar, ler, atualizar e deletar informações de contas em um sistema bancário, com suporte a documentação Swagger para endpoints. A aplicação usa `Flask-RESTX` para a API, `SQLAlchemy` para a modelagem de dados e `PostgreSQL` como banco de dados.
 
+## Organização e Estrutura do projeto (Design Pattern)
+**Design Pattern: Layered Architecture**
+- Separação de Preocupações: Camadas claramente definidas impedem que a lógica vaze entre componentes.
+Reutilização do Código: A lógica de negócios é encapsulada em serviços, facilitando a reutilização.
+- Testabilidade: Cada camada pode ser testada em unidade isoladamente, melhorando a confiabilidade do código.
+- Escalabilidade: Novos recursos podem ser adicionados mais facilmente, pois a responsabilidade de cada camada é bem definida.
+Este padrão de design tornará seu aplicativo mais sustentável e mais fácil de escalar à medida que ele cresce.
+
+A arquitetura é organizada em camadas, o que facilita a manutenção, escalabilidade e entendimento do código. As camadas principais são:
+
+**Controllers (Camada de Apresentação/Interface)**
+Arquivos: auth.py, transaction.py
+Função: Gerencia as rotas e a lógica relacionada a requisições e respostas HTTP.
+Ex.: AuthController e TransactionController são responsáveis por lidar com as requisições de autenticação e transações.
+
+**Services (Camada de Negócio/Aplicação)**
+Arquivo: account.py
+Função: Implementa a lógica de negócios, processando os dados recebidos da camada de apresentação.
+Ex.: AccountService gerencia a criação e manipulação de contas bancárias.
+
+**Repositories (Camada de Acesso a Dados)**
+Arquivos: account.py, transaction.py
+Função: Comunicação com o banco de dados, utilizando os modelos definidos.
+Ex.: AccountRepository acessa diretamente os dados de contas no banco.
+
+**Models (Camada de Modelagem de Dados)**
+Arquivos: accounts.py, transactions.py, users.py
+Função: Definem as estruturas e relacionamentos das tabelas no banco de dados.
+Ex.: O modelo Account representa a tabela de contas.
+
+**Enums (Enumeração de Constantes)**
+Arquivo: transaction_enum.py
+Função: Define constantes usadas em transações, como os métodos de pagamento.
+
+**Configuração e Infraestrutura**
+Dockerfile, docker-compose.yml, .env, config.py, entrypoint.sh
+Função: Configurações de ambiente, banco de dados e inicialização da aplicação.
+
+**Testes**
+test_app.py
+Função: Testes unitários e de integração.
+
+## Swegger
+A documentação do projeto é feita utilizando o pacote Flasgger, que permite documentar e testar os endpoints da sua aplicação Flask de forma simples e intuitiva.
+```
+#Exemplo uso do swegger em cada class/funcionalidade do sistema
+ @swag_from({
+        'tags': ['Account'],
+        'security': [{'Bearer': []}],
+        'parameters': []
+        })
+```
+
+**Termos e configurações utilizadas**
+- info: Informações gerais da API. 
+- tags: Define a seção da documentação (neste caso, "Autenticação").
+- security: Indica que o endpoint exige um token JWT (Bearer).
+- securityDefinitions: Define o esquema de autenticação (Bearer).
+- enum: Define valores fixos para o campo forma_pagamento.
+- description: Explica o propósito do endpoint.
+- parameters: Lista os parâmetros esperados (neste caso, username e password).
+- example: Exemplo de payload esperado.
+- responses: Descreve as possíveis respostas (201, 200 e 404).
+
 ### Pré-requisitos
 
 Para rodar o projeto, é necessário ter:
